@@ -1,0 +1,122 @@
+.shop-body {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  padding-top: 120px;
+  box-sizing: border-box;
+  
+}
+
+
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; 
+  justify-content: center; 
+  padding: 10px; 
+  margin-top: 80px; 
+  
+}
+
+.card {
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 8px 4px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+h2 {
+  height: 3em; /* Ensures the title height is consistent */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limits title to 2 lines */
+  -webkit-box-orient: vertical;
+  color: #333 !important;
+}
+
+.card-image {
+  margin: 10px 0;
+  width: 100px;
+  height: 100px;
+  object-fit: contain; /* Ensures the entire image is visible */
+}
+
+.quantityContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  flex-grow: 1; /* Ensures this section grows to fill available space */
+}
+
+.stock-info, .quantityContainer {
+  flex-grow: 1; /* Allows these sections to fill remaining space */
+}
+
+button {
+  padding: 10px 20px;
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #cc9900;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.stock-info {
+  font-size: 1em;
+  color: #333;
+  margin: 0;
+}
+
+.quantityLabel {
+  font-weight: bold;
+}
+
+.quantityDropdown {
+  width: 80px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.outOfStock {
+  padding-top: 50px;
+  color: red;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 1200px) {
+  .item-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .item-list {
+    grid-template-columns: 1fr;
+  }
+}
