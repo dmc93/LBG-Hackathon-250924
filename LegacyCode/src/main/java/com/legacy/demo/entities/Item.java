@@ -7,62 +7,32 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private String product;
     private Double price;
     private Integer quantity;
-    private String imageUrl;
+    private String expiry_date;  // Consistent naming: expiry_date
     private String category;
-
-    private Integer totalRatingsCount = 0;  // Number of ratings received
-    private Integer totalRatingSum = 0;     // Sum of all ratings (to calculate average)
 
     public Item() {
     }
 
-    public Item(Integer id, String name, Double price, Integer quantity, String imageUrl, String category) {
-        super();
+    // Updated constructor with consistent naming
+    public Item(Integer id, String product, Double price, Integer quantity, String expiry_date, String category) {
         this.id = id;
-        this.name = name;
+        this.product = product;
         this.price = price;
         this.quantity = quantity;
-        this.imageUrl = imageUrl;
+        this.expiry_date = expiry_date;
         this.category = category;
     }
 
-    public Item(String name, Double price, String imageUrl, String category) {
-        super();
-        this.name = name;
+    // Another constructor with consistent naming
+    public Item(String product, Double price, String expiry_date, String category) {
+        this.product = product;
         this.price = price;
-        this.imageUrl = imageUrl;
+        this.expiry_date = expiry_date;
         this.category = category;
     }
-
-
-    public Integer getTotalRatingsCount() {
-        return totalRatingsCount;
-    }
-
-    public void setTotalRatingsCount(Integer totalRatingsCount) {
-        this.totalRatingsCount = totalRatingsCount;
-    }
-
-    public Integer getTotalRatingSum() {
-        return totalRatingSum;
-    }
-
-    public void setTotalRatingSum(Integer totalRatingSum) {
-        this.totalRatingSum = totalRatingSum;
-    }
-
-    // Method to calculate average rating
-    @Transient
-    public Double getAverageRating() {
-        if (totalRatingsCount == null || totalRatingsCount == 0) {
-            return 0.0;
-        }
-        return (totalRatingSum == null ? 0 : (double) totalRatingSum) / totalRatingsCount;
-    }
-
 
     public Integer getId() {
         return id;
@@ -72,12 +42,12 @@ public class Item {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getProduct() {  // Updated to getProduct for clarity
+        return product;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProduct(String product) {  // Updated to setProduct for clarity
+        this.product = product;
     }
 
     public Double getPrice() {
@@ -96,12 +66,12 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getExpiryDate() {
+        return expiry_date;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setExpiryDate(String expiry_date) {
+        this.expiry_date = expiry_date;
     }
 
     public String getCategory() {

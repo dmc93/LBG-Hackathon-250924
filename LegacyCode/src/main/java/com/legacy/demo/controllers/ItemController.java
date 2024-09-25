@@ -45,34 +45,34 @@ public class ItemController {
         return this.service.removeItem(id);
     }
 
-    @PatchMapping("/item/update/{id}")
-    public ResponseEntity<?> updateItem(@PathVariable Integer id, @RequestBody Item itemUpdate) {
-        return this.service.itemUpdate(
-                id,
-                itemUpdate.getName(),
-                itemUpdate.getPrice(),
-                itemUpdate.getQuantity(),
-                itemUpdate.getImageUrl(),
-                itemUpdate.getCategory()
-        );
+//    @PatchMapping("/item/update/{id}")
+//    public ResponseEntity<?> updateItem(@PathVariable Integer id, @RequestBody Item itemUpdate) {
+//        return this.service.itemUpdate(
+//                id,
+//                itemUpdate.getProduct(),
+//                itemUpdate.getPrice(),
+//                itemUpdate.getQuantity(),
+//                itemUpdate.getImageUrl(),
+//                itemUpdate.getCategory()
+//        );
     }
 
     // Submit a rating for an item (directly pass the rating in ItemDto)
-    @PostMapping("/item/{id}/rate")
-    public ResponseEntity<?> rateItem(@PathVariable Integer id, @RequestBody ItemDto itemDto) {
-        // Validate the rating (ensure it's between 1 and 5)
-        if (itemDto.getRating() == null || itemDto.getRating() < 1 || itemDto.getRating() > 5) {
-            return new ResponseEntity<>("Invalid rating. Rating should be between 1 and 5.", HttpStatus.BAD_REQUEST);
-        }
-
-        // Pass the rating to the service
-        return this.service.rateItem(id, itemDto.getRating());
-    }
+//    @PostMapping("/item/{id}/rate")
+//    public ResponseEntity<?> rateItem(@PathVariable Integer id, @RequestBody ItemDto itemDto) {
+//        // Validate the rating (ensure it's between 1 and 5)
+//        if (itemDto.getRating() == null || itemDto.getRating() < 1 || itemDto.getRating() > 5) {
+//            return new ResponseEntity<>("Invalid rating. Rating should be between 1 and 5.", HttpStatus.BAD_REQUEST);
+//        }
+//
+//        // Pass the rating to the service
+//        return this.service.rateItem(id, itemDto.getRating());
+//    }
 
     // Fetch the average rating of an item
-    @GetMapping("/item/{id}/average-rating")
-    public ResponseEntity<Double> getAverageRating(@PathVariable Integer id) {
-        return this.service.getAverageRating(id);
-    }
+//    @GetMapping("/item/{id}/average-rating")
+//    public ResponseEntity<Double> getAverageRating(@PathVariable Integer id) {
+//        return this.service.getAverageRating(id);
+//    }
 
-}
+

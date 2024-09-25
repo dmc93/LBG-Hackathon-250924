@@ -31,25 +31,20 @@ public class ItemDto {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        this.imageUrl  = imageUrl;
+        this.imageUrl = imageUrl;
         this.category = category;
-        this.totalRatingsCount = totalRatingsCount;
-        this.totalRatingSum = totalRatingSum;
-        this.averageRating = (totalRatingsCount == 0) ? 0.0 : (double) totalRatingSum / totalRatingsCount;
+        ;
     }
 
     // Constructor to convert from Item entity to ItemDto
     public ItemDto(Item item) {
         super();
         this.id = item.getId();
-        this.name = item.getName();
+        this.name = item.getProduct();
         this.price = item.getPrice();
         this.quantity = item.getQuantity();
-        this.imageUrl = item.getImageUrl();
+        this.imageUrl = item.getCategory();
         this.category = item.getCategory();
-        this.totalRatingsCount = item.getTotalRatingsCount();
-        this.totalRatingSum = item.getTotalRatingSum();
-        this.averageRating = item.getAverageRating();  // Calls the transient method in the entity
     }
 
     // Getters and Setters
@@ -101,37 +96,38 @@ public class ItemDto {
         this.category = category;
     }
 
-    // Ratings related fields
-    public Integer getTotalRatingsCount() {
-        return totalRatingsCount;
-    }
-
-    public void setTotalRatingsCount(Integer totalRatingsCount) {
-        this.totalRatingsCount = totalRatingsCount;
-    }
-
-    public Integer getTotalRatingSum() {
-        return totalRatingSum;
-    }
-
-    public void setTotalRatingSum(Integer totalRatingSum) {
-        this.totalRatingSum = totalRatingSum;
-    }
-
-    public Double getAverageRating() {
-        return averageRating;
-    }
-
-    public void setAverageRating(Double averageRating) {
-        this.averageRating = averageRating;
-    }
-
-    // Getter and setter for rating (input for user rating submission)
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
+//    // Ratings related fields
+//    public Integer getTotalRatingsCount() {
+//        return totalRatingsCount;
+//    }
+//
+//    public void setTotalRatingsCount(Integer totalRatingsCount) {
+//        this.totalRatingsCount = totalRatingsCount;
+//    }
+//
+//    public Integer getTotalRatingSum() {
+//        return totalRatingSum;
+//    }
+//
+//    public void setTotalRatingSum(Integer totalRatingSum) {
+//        this.totalRatingSum = totalRatingSum;
+//    }
+//
+//    public Double getAverageRating() {
+//        return averageRating;
+//    }
+//
+//    public void setAverageRating(Double averageRating) {
+//        this.averageRating = averageRating;
+//    }
+//
+//    // Getter and setter for rating (input for user rating submission)
+//    public Integer getRating() {
+//        return rating;
+//    }
+//
+//    public void setRating(Integer rating) {
+//        this.rating = rating;
+//    }
+//}
 }

@@ -72,10 +72,10 @@ public class ItemService {
 
         Item toUpdate = found.get();
 
-        if (name != null) toUpdate.setName(name);
+        if (name != null) toUpdate.setProduct(name);
         if (price != null) toUpdate.setPrice(price);
         if (quantity != null) toUpdate.setQuantity(quantity);
-        if (imageUrl != null) toUpdate.setImageUrl(imageUrl);
+        if (imageUrl != null) toUpdate.setCategory(imageUrl);
         if (category != null) toUpdate.setCategory(category);
 
         Item updated = this.repo.save(toUpdate);
@@ -84,38 +84,38 @@ public class ItemService {
 
     // Handle rating submission
     // Handle rating submission
-    public ResponseEntity<?> rateItem(Integer id, Integer rating) {
-        Optional<Item> found = this.repo.findById(id);
-        if (found.isEmpty()) {
-            return new ResponseEntity<>("No Item found with id " + id, HttpStatus.NOT_FOUND);
-        }
-
-        Item item = found.get();
-
-        // Update total rating count and sum
-        item.setTotalRatingsCount(item.getTotalRatingsCount() + 1);
-        item.setTotalRatingSum(item.getTotalRatingSum() + rating);
-
-        // Save the updated item
-        this.repo.save(item);
-
-        // Return the updated rating data in the response
-        Map<String, Object> responseBody = new HashMap<>();
-        responseBody.put("averageRating", item.getAverageRating());
-        responseBody.put("totalRatingsCount", item.getTotalRatingsCount());
-
-        return ResponseEntity.ok(responseBody);
-    }
+//    public ResponseEntity<?> rateItem(Integer id, Integer rating) {
+//        Optional<Item> found = this.repo.findById(id);
+//        if (found.isEmpty()) {
+//            return new ResponseEntity<>("No Item found with id " + id, HttpStatus.NOT_FOUND);
+//        }
+//
+//        Item item = found.get();
+//
+//        // Update total rating count and sum
+//        item.setTotalRatingsCount(item.getTotalRatingsCount() + 1);
+//        item.setTotalRatingSum(item.getTotalRatingSum() + rating);
+//
+//        // Save the updated item
+//        this.repo.save(item);
+//
+//        // Return the updated rating data in the response
+//        Map<String, Object> responseBody = new HashMap<>();
+//        responseBody.put("averageRating", item.getAverageRating());
+//        responseBody.put("totalRatingsCount", item.getTotalRatingsCount());
+//
+//        return ResponseEntity.ok(responseBody);
+//    }
 
 
     // Get the average rating of an item
-    public ResponseEntity<Double> getAverageRating(Integer id) {
-        Optional<Item> found = this.repo.findById(id);
-        if (found.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        Item item = found.get();
-        return ResponseEntity.ok(item.getAverageRating());
-    }
+//    public ResponseEntity<Double> getAverageRating(Integer id) {
+//        Optional<Item> found = this.repo.findById(id);
+//        if (found.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//
+//        Item item = found.get();
+//        return ResponseEntity.ok(item.getAverageRating());
+//    }
 }
